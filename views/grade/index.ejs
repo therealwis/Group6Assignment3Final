@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Student Grades</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+           .form-inputs, select{
+                padding: 0.6rem;
+                border: 2px solid gainsboro;
+                margin: 1rem 0;
+                width: 100%;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 5px;
+                padding: 5px;
+            }
+        
+            /* Select the table header cells and apply some styles */
+            th {
+                background-color: #41349E;
+                color: white;
+                text-align: left;
+                padding: 10px;
+            }
+        
+            /* Select the table body cells and apply some styles */
+            td {
+                border: 1px solid #ddd;
+                padding: 10px;
+            }
+        
+            /* Select the table body rows and alternate their background colors */
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        
+            /* Select the table body links and apply some styles */
+            a {
+                color: #007bff;
+                text-decoration: none;
+            }
+        
+            /* Change the link color on hover */
+            a:hover {
+                color: #0056b3;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="root">
+            <%- include("../includes/sidebar") %>
+            <div class="main">
+                <%- include("../includes/header") %>
+                <div class="content">                    
+                    <div>
+                        
+                        <h1>All Student Grades</h1>
+                        <div>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Student ID</th>
+                                        <th>student Name</th>
+                                        <% subjects.forEach(function(rowss) { %>
+                                            <th><%= rowss.name %></th>
+                                        <% }); %>
+                                        <th>Total Marks (900)</th>
+                                        <th>Average</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                   <% students.forEach(function(rows) { %>
+                                      <% let total_marks = 0; %> 
+                                      <tr>
+                                        <td><%= rows.id %></td>
+                                        <td><%= rows.firstname %>&nbsp;<%= rows.surname %></td>
+                                        <% subjects.forEach(function(rowss) { %>
+                                            <% grades.forEach(function(rowsss) { %>
+                                                <% if (rowsss !== null || rowsss !== 'undefined') { %>
+                                                    <% if (rowss.id == rowsss.subject_id && rows.id == rowsss.student_id) { %>
+                                                        <td>
+                                                            <%= rowsss.score %>
+                                                        </td>
+                                                        <% total_marks += rowsss.score; %>
+                                                    <%} else { %>
+                                                        
+                                                    <% } %>
+                                                <%} else { %>
+                                                   <td>
+
+                                                   </td>
+                                                <% } %>
+                                            <% }); %>
+                                        <% }); %>
+                                
+                                       <td><%= total_marks %></td>
+                                       <td><%= parseInt(total_marks/9) %></td>
+                                       <td>
+                                        <a href="/grades/<%= rows.id %>/report-card">View Report Card</a>
+                                       </td>
+                                      </tr>
+                                   <% }); %>
+                            
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+       
+    </body>
+</html>

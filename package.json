@@ -1,0 +1,27 @@
+{
+  "name": "group6",
+  "version": "1.0.0",
+  "description": "CIT3 Group6 Assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Group6",
+  "license": "ISC",
+  "dependencies": {
+    "chart.js": "^4.4.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/therealwis/Group6Assignment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/therealwis/Group6Assignment/issues"
+  },
+  "homepage": "https://github.com/therealwis/Group6Assignment#readme",
+  "devDependencies": {}
+}

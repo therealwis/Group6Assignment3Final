@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grade - Student</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+           .form-inputs, select{
+                padding: 0.6rem;
+                border: 2px solid gainsboro;
+                margin: 1rem 0;
+                width: 100%;
+            }
+            
+        </style>
+    </head>
+    
+    <body>
+        <div class="root">
+            <%- include("../includes/sidebar") %>
+            <div class="main">
+                <%- include("../includes/header") %>
+                <div class="content">                    
+                    <div>
+                        <% students.forEach(function(rows) { %>
+                            <h1>Enter Grades for <%= rows.firstname %>&nbsp;<%= rows.surname %></h1>
+                        <% }); %>
+                        <form action="/enter-grades" method="POST">
+                            <select class="form-inputs" name="student_id" placeholder="Student ID">
+                                <% students.forEach(function(rows) { %>
+                                    <option value="<%= rows.id %>"><%= rows.firstname %>&nbsp;<%= rows.surname %></option>
+                                <% }); %>
+                            </select>
+                            <select class="form-inputs" name="subject_id" placeholder="Subject ID">
+                                <% subjects.forEach(function(rowss) { %>
+                                    <option value="<%= rowss.id %>"><%= rowss.name %></option>
+                                <% }); %>
+                            </select>
+                            <input class="form-inputs" type="number" name="score" max="100" min="0" placeholder="Score">
+                            <input style="width: 20%; padding: 0.25rem; cursor:pointer; background-color:dodgerblue; color:white;" type="submit" value="submit">
+                        </form>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+       
+    </body>
+</html>
+
+

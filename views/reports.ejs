@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Group 6 PRG</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    
+    <body>
+        <div class="root">
+            <%- include("./includes/sidebar") %>
+            <div class="main">
+                <%- include("./includes/header") %>
+
+                <div class="content">
+                    <h1>Charts</h1>
+                    <div class="charts">
+                        <div class="chart-container">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var barChartData = JSON.parse('<%- JSON.stringify(barChartData) %>');
+            var barChartOptions = JSON.parse('<%- JSON.stringify(barChartOptions) %>');
+            var ctxBar = document.getElementById('myChart').getContext('2d');
+            var myBarChart = new Chart(ctxBar, {
+                type: 'bar',
+                data: barChartData,
+                options: barChartOptions
+            });
+        </script>
+    </body>
+</html>
+
+

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Teachers</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+        <style>
+            .form-inputs, select{
+                padding: 0.6rem;
+                border: 2px solid gainsboro;
+                margin: 0.5rem 0;
+                width: 100%;
+            }
+            input[type=submit]{
+                padding: 0.25rem; cursor:pointer; background-color:dodgerblue; color:white;
+                border-radius: 2rem;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 5px;
+                padding: 5px;
+            }
+        
+            /* Select the table header cells and apply some styles */
+            th {
+                background-color: #41349E;
+                color: white;
+                text-align: left;
+                padding: 10px;
+            }
+        
+            /* Select the table body cells and apply some styles */
+            td {
+                border: 1px solid #ddd;
+                padding: 10px;
+            }
+        
+            /* Select the table body rows and alternate their background colors */
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        
+            /* Select the table body links and apply some styles */
+            a {
+                color: #007bff;
+                text-decoration: none;
+            }
+        
+            /* Change the link color on hover */
+            a:hover {
+                color: #0056b3;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="root">
+            <%- include("../includes/sidebar") %>
+            <div class="main">
+                <%- include("../includes/header") %>
+                <div class="content">
+                    <div>
+                        <h1>Add Teacher</h1>
+                        <form action="/teachers/create" method="POST">
+                            <input class="form-inputs" type="text" name="teacher_fname" placeholder="teacher FirstName">
+                            <input class="form-inputs" type="text" name="teacher_sname" placeholder="teacher Surname">
+                            <select name="teacher_gender">
+                                <option value="M">Male</option>
+                                <option value="F">Female</option>
+                            </select>
+                            <input type="submit" value="submit">
+                        </form>
+                    </div>
+
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>first name</th>
+                                    <th>Surname</th>
+                                    <th>Gender</th>
+                                    <th>Operations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                               <% print.forEach(function(rows) { %>
+                                  <tr>
+                                  <td><%= rows.id %></td>
+                                  <td><%= rows.firstname %></td>
+                                  <td><%= rows.surname %></td>
+                                  <td><%= rows.gender %></td>
+                        
+                                  <td>
+                                    <a href="/teachers/edit/<%= rows.id %>">Edit</a> 
+                                    <a href="/teachers/delete/<%= rows.id %>">Delete</a>
+                                  </td>
+                                  </tr>
+                               <% }); %>
+                        
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+       
+    </body>
+</html>
+
+

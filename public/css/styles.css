@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.root {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sidebar {
+    --width: 25%;
+    height: 100%;
+    background-color: #41349E;
+    position: -webkit-sticky; /* for Safari compatibility */
+    position: sticky;
+    top: 0;
+    padding: 0.5rem 1rem;
+    overflow-y: hidden;
+}
+
+.sidebar-logo{
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    align-items: center;
+    gap: 10px;
+    padding: 1.4rem
+}
+.logo {
+    width: 60px;
+    height: 60px;
+}
+.sidebar-logo span{
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.search-bar {
+    width: 300px;
+    height: 30px;
+    margin-right: 20px;
+    border-radius: 15px;
+    border: none;
+    padding-left: 10px;
+}
+
+
+.links-container{
+    padding: 1rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    gap: 0.5rem;
+    height: 40%;
+}
+
+.menu-item {
+    padding: 0.3rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 0.6rem;
+    -webkit-border-radius: 0.6rem;
+    -moz-border-radius: 0.6rem;
+    -ms-border-radius: 0.6rem;
+    -o-border-radius: 0.6rem;
+}
+
+.icon{
+    color: #8EA3FB;
+    font-size: 1.2rem;
+    padding: 6px;
+    height: 2.1rem;
+    width: 2.5rem;
+}
+
+.menu-link {
+    line-height: 40px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #8EA3FB;
+    padding: 6px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-link:hover{
+    color: white;
+}
+
+.menu-item:hover{
+    background-color: #332B79;
+}
+
+.active {
+    background-color: #332B79; /* Change to your desired color */
+    color: #ffffff; /* Change to your desired text color */
+}
+
+
+.main{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+header{
+    background-color: #FFFFFF;
+    box-shadow: 0px 0.25rem 0.5rem rgba(180, 180, 180, 0.5);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: inherit;
+    width: 50%;
+    height: 100%;
+}
+
+.search-icon {
+    margin-right: 8px;
+    color: #777;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.notif-icon{
+    margin-right: 8px;
+    color: #777;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.profile-image{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+}
+  
+input{
+    border: none;
+    background: none;
+    outline: none;
+    flex-grow: 1;
+    height: 100%;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.user-profile{
+    padding: 0.5rem 1.5rem;
+}
+
+.content {
+    width: 100%;
+    height: 90vh;
+    padding: 1rem 4rem;
+    overflow-y: auto;
+}
+
+.content h1{
+    color: black;
+    font-weight: 550;
+    padding: 1rem 0;
+}
+
+.main-content{
+    height: 60%;
+    border-radius: 1rem;
+    border: 0.35rem dashed #cccccc;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.charts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 1.25rem 0;
+    gap: 2rem;
+}
+
+.chart-container {
+    width: 100%; 
+    
+    margin-right: 10px; 
+    margin-bottom: 10px; 
+}
+
+canvas {
+    max-width: 100%; 
+    height: auto; 
+}
